@@ -1,1 +1,27 @@
-<p>switch.component works!</p>
+<div [ngClass]="classes"
+     (click)="onClick()">
+
+  <svg width="60"
+       height="34"
+       viewBox="0 0 60 34"
+       xmlns="http://www.w3.org/2000/svg">
+    <!-- Track -->
+    <rect x="2"
+          y="2"
+          rx="17"
+          width="56"
+          height="30"
+          [attr.fill]="trackColor"
+          class="track"/>
+
+    <!-- Thumb -->
+    <circle class="thumb"
+            id="thumb"
+            cx="17"
+            cy="17"
+            r="13"
+            [attr.fill]="thumbColor"/>
+  </svg>
+</div>
+
+

@@ -125,7 +125,83 @@
                     }
                 }
             },
-            "templateData": "<button [disabled]=\"disabled\"\r\n        (click)=\"onClick()\"\r\n        [ngClass]=\"classes\">\r\n  <span class=\"btn-wrap\">\r\n  <span class=\"icon icon-left\">\r\n    <ng-content select=\"[icon-left]\"></ng-content>\r\n  </span>\r\n  <span class=\"label\">\r\n    {{ label }}\r\n  </span>\r\n  <span class=\"icon icon-right\">\r\n    <ng-content select=\"[icon-right]\"></ng-content>\r\n  </span>\r\n  </span>\r\n</button>\r\n"
+            "templateData": "<button [disabled]=\"disabled\"\r\n        (click)=\"onClick()\"\r\n        [ngClass]=\"classes\">\r\n  <span class=\"btn-wrap\">\r\n  <span class=\"icon icon-left\">\r\n    // TODO add icons\r\n    <ng-content select=\"[icon-left]\"></ng-content>\r\n  </span>\r\n  <span class=\"label\">\r\n    {{ label }}\r\n  </span>\r\n  <span class=\"icon icon-right\">\r\n    <ng-content select=\"[icon-right]\"></ng-content>\r\n  </span>\r\n  </span>\r\n</button>\r\n"
+        },
+        {
+            "name": "CheckboxComponent",
+            "id": "component-CheckboxComponent-a113950c134c4284931f6ff9eb2144d7655e046c91d4fe44374be3af1acdcf3f90e5a2e4810cd1eb23dc922d7ee3c3d9a0b144e493d8ca98d0ffa96c3cbb07a2",
+            "file": "projects/nd-library/src/lib/components/checkbox.component/checkbox.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-checkbox.component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'lib-checkbox.component',\r\n  standalone: false,\r\n  templateUrl: './checkbox.component.html',\r\n  styleUrl: './checkbox.component.css'\r\n})\r\nexport class CheckboxComponent {\r\n\r\n}\r\n",
+            "styleUrl": "./checkbox.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>checkbox.component works!</p>\r\n"
+        },
+        {
+            "name": "IconButtonComponent",
+            "id": "component-IconButtonComponent-3a85386a62b415776ccdda67a36da4597d749096d01594d38ad2731cb65c59014c1f674ecf531057dd81abea86de634944586d26feac482b756a8f157cf685c0",
+            "file": "projects/nd-library/src/lib/components/icon-button.component/icon-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-icon-button.component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./icon-button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'lib-icon-button.component',\r\n  standalone: false,\r\n  templateUrl: './icon-button.component.html',\r\n  styleUrl: './icon-button.component.css'\r\n})\r\nexport class IconButtonComponent {\r\n\r\n}\r\n",
+            "styleUrl": "./icon-button.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>icon-button.component works!</p>\r\n"
         },
         {
             "name": "NdLibrary",
@@ -163,18 +239,94 @@
             "styleUrlsData": "",
             "stylesData": "\n",
             "extends": []
+        },
+        {
+            "name": "RadioComponent",
+            "id": "component-RadioComponent-05f37eeb56202a3b736f3db3865e3a2bde2539cc134d4a58db0e93b8425ed8be1c43acdcf2b470f1d3a5f7c4413ec09cbe4649bb0b1f313c1e425f5fe30efce3",
+            "file": "projects/nd-library/src/lib/components/radio.component/radio.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-radio.component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./radio.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'lib-radio.component',\r\n  standalone: false,\r\n  templateUrl: './radio.component.html',\r\n  styleUrl: './radio.component.css'\r\n})\r\nexport class RadioComponent {\r\n\r\n}\r\n",
+            "styleUrl": "./radio.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>radio.component works!</p>\r\n"
+        },
+        {
+            "name": "SwitchComponent",
+            "id": "component-SwitchComponent-e9b9e828efc385d4014da1f241d9e978a464d8109938107801641b152f29cb9a0461c88f429ea8ba7054fb21814467cd8dcf482bfe81ad5ee07d4e218fd125fd",
+            "file": "projects/nd-library/src/lib/components/switch.component/switch.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-switch.component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./switch.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'lib-switch.component',\r\n  standalone: false,\r\n  templateUrl: './switch.component.html',\r\n  styleUrl: './switch.component.css'\r\n})\r\nexport class SwitchComponent {\r\n\r\n}\r\n",
+            "styleUrl": "./switch.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<svg width=\"60\" height=\"34\" viewBox=\"0 0 60 34\" xmlns=\"http://www.w3.org/2000/svg\">\r\n  <!-- Track -->\r\n  <rect x=\"2\" y=\"2\" rx=\"17\" width=\"56\" height=\"30\" fill=\"#ccc\" />\r\n\r\n  <!-- Thumb -->\r\n  <circle id=\"thumb\" cx=\"17\" cy=\"17\" r=\"13\" fill=\"white\" />\r\n</svg>\r\n\r\n\r\n"
         }
     ],
     "modules": [
         {
             "name": "NdLibraryModule",
-            "id": "module-NdLibraryModule-e11892dfe878e2cda758a04602a5b5fbe29c916dc5ee37de7344a58eef89ca6948bb7e9e7a694459e7c3b0e5f3e29dba4f6e6c9ee13878d242b9a87f159e9461",
+            "id": "module-NdLibraryModule-8d026aaabcebe9feb8c3e7667fa45212d62bfdbb355cad5040cf98e25266ebe62dccc21d0a09ba1e45c3ef335a4b17fd14d075d2e2f6e88b618afed21cb73a8d",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/nd-library/src/lib/nd-library-module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { NdLibrary } from './nd-library';\r\nimport {\r\n  ButtonComponent\r\n} from './components/button/button.component';\r\nimport {NgClass} from '@angular/common';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    NdLibrary,\r\n    ButtonComponent\r\n  ],\r\n  imports: [\r\n    NgClass\r\n  ],\r\n  exports: [\r\n    NdLibrary,\r\n    ButtonComponent\r\n  ]\r\n})\r\nexport class NdLibraryModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { NdLibrary } from './nd-library';\r\nimport {\r\n  ButtonComponent\r\n} from './components/button/button.component';\r\nimport {NgClass} from '@angular/common';\r\nimport { CheckboxComponent } from './components/checkbox.component/checkbox.component';\r\nimport { RadioComponent } from './components/radio.component/radio.component';\r\nimport { IconButtonComponent } from './components/icon-button.component/icon-button.component';\r\nimport { SwitchComponent } from './components/switch.component/switch.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    NdLibrary,\r\n    ButtonComponent,\r\n    CheckboxComponent,\r\n    RadioComponent,\r\n    IconButtonComponent,\r\n    SwitchComponent\r\n  ],\r\n  imports: [\r\n    NgClass\r\n  ],\r\n  exports: [\r\n    NdLibrary,\r\n    ButtonComponent\r\n  ]\r\n})\r\nexport class NdLibraryModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -187,7 +339,19 @@
                             "name": "ButtonComponent"
                         },
                         {
+                            "name": "CheckboxComponent"
+                        },
+                        {
+                            "name": "IconButtonComponent"
+                        },
+                        {
                             "name": "NdLibrary"
+                        },
+                        {
+                            "name": "RadioComponent"
+                        },
+                        {
+                            "name": "SwitchComponent"
                         }
                     ]
                 },
@@ -603,7 +767,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 10,
+        "count": 7,
         "status": "low",
         "files": [
             {
@@ -674,6 +838,42 @@
                 "coveragePercent": 85,
                 "coverageCount": "6/7",
                 "status": "very-good"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/checkbox.component/checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CheckboxComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/icon-button.component/icon-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "IconButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/radio.component/radio.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RadioComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/switch.component/switch.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SwitchComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
             },
             {
                 "filePath": "projects/nd-library/src/lib/nd-library.ts",

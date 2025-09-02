@@ -25,7 +25,11 @@ import { SwitchComponent } from './components/switch.component/switch.component'
   ],
   exports: [
     NdLibrary,
-    ButtonComponent
+    ButtonComponent,
+    CheckboxComponent,
+    RadioComponent,
+    IconButtonComponent,
+    SwitchComponent,
   ]
 })
 export class NdLibraryModule { }
