@@ -1,0 +1,19 @@
+.nd-switch {
+  cursor: pointer;
+
+
+  #thumb {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.on {
+      transform: translateX(24px); /* slide to the right */
+    }
+  }
+
+  .nd-switch.on #thumb {
+  }
+}

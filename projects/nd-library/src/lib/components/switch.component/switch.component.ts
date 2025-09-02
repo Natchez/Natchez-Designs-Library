@@ -4,12 +4,12 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   selector: 'lib-switch.component',
   standalone: false,
   templateUrl: './switch.component.html',
-  styleUrl: './switch.component.css'
+  styleUrl: './switch.component.scss'
 })
 export class SwitchComponent {
 
-  @Input() trackColor = 'blue';
-  @Input() thumbColor = 'green';
+  @Input() trackColor = '#BFBFC0';
+  @Input() thumbColor = 'white';
   @Input() label = 'green';
   @Input() subLabel = 'green';
   @Input() size: 'small' | 'medium' | 'large' = 'small';
@@ -26,7 +26,6 @@ export class SwitchComponent {
    **/
   onClick(): void {
     if (!this.disabled) {
-      console.log('clicked,' + this.checked);
       this.checked = !this.checked;
       this.clicked.emit();
     }
