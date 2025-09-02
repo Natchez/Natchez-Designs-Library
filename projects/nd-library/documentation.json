@@ -1,0 +1,689 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-d0c57887065d55cc5fa2d6477aa3dbdb62829eb26191427229ce50cb1c5db68b1514c6484b23043aab47ebf9dac982e08f6aac1f6211e7c8a63d8307d55adbb7",
+            "file": "projects/nd-library/src/lib/components/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "nd-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhether the button is disabled and non-interactive\n",
+                    "description": "<p>Whether the button is disabled and non-interactive</p>\n",
+                    "line": 29,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nText label displayed inside the button\n",
+                    "description": "<p>Text label displayed inside the button</p>\n",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'large'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nSize of the button (affects padding and font size)\n",
+                    "description": "<p>Size of the button (affects padding and font size)</p>\n",
+                    "line": 24,
+                    "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                },
+                {
+                    "name": "style",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nVisual style of the button\n",
+                    "description": "<p>Visual style of the button</p>\n",
+                    "line": 19,
+                    "type": "\"solid\" | \"outline\" | \"text\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "clicked",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nEvent emitted when the button is clicked (if not disabled)\n",
+                    "description": "<p>Event emitted when the button is clicked (if not disabled)</p>\n",
+                    "line": 34,
+                    "type": "EventEmitter<any>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nHandles button click and prevents firing `clicked` if disabled\n",
+                    "description": "<p>Handles button click and prevents firing <code>clicked</code> if disabled</p>\n"
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'nd-button',\r\n  standalone: false,\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss'\r\n})\r\nexport class ButtonComponent {\r\n\r\n  /**\r\n   * Text label displayed inside the button\r\n   **/\r\n  @Input() label: string = 'Button';\r\n\r\n  /**\r\n   * Visual style of the button\r\n   **/\r\n  @Input() style: 'solid' | 'outline' | 'text' = 'text';\r\n\r\n  /**\r\n   * Size of the button (affects padding and font size)\r\n   **/\r\n  @Input() size: 'small'| 'medium'| 'large' = 'large';\r\n\r\n  /**\r\n   * Whether the button is disabled and non-interactive\r\n   **/\r\n  @Input() disabled: boolean = false;\r\n\r\n  /**\r\n   * Event emitted when the button is clicked (if not disabled)\r\n   **/\r\n  @Output() clicked: EventEmitter<any> = new EventEmitter();\r\n\r\n  /**\r\n   * Handles button click and prevents firing `clicked` if disabled\r\n   **/\r\n  onClick(): void {\r\n    if (!this.disabled) {\r\n      this.clicked.emit();\r\n    }\r\n  }\r\n\r\n  /**\r\n   * Automatically sets classes when input changes\r\n   **/\r\n  public get classes(): string[] {\r\n    return [\r\n      'nd-button',\r\n      `nd-button--${this.size}`,\r\n      `nd-button--${this.style}`,\r\n      this.disabled ? 'nd-button--disabled' : ''\r\n    ];\r\n  }\r\n\r\n}\r\n",
+            "styleUrl": "./button.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 48,
+                        "rawdescription": "\n\nAutomatically sets classes when input changes\n",
+                        "description": "<p>Automatically sets classes when input changes</p>\n"
+                    }
+                }
+            },
+            "templateData": "<button [disabled]=\"disabled\"\r\n        (click)=\"onClick()\"\r\n        [ngClass]=\"classes\">\r\n  <span class=\"btn-wrap\">\r\n  <span class=\"icon icon-left\">\r\n    <ng-content select=\"[icon-left]\"></ng-content>\r\n  </span>\r\n  <span class=\"label\">\r\n    {{ label }}\r\n  </span>\r\n  <span class=\"icon icon-right\">\r\n    <ng-content select=\"[icon-right]\"></ng-content>\r\n  </span>\r\n  </span>\r\n</button>\r\n"
+        },
+        {
+            "name": "NdLibrary",
+            "id": "component-NdLibrary-ead140ed1375dfa143e51d2d56e5fb3ace8f502adf5274bb36d8c89090eedc9a0a0b9f55e4b0955ac68b2153536c2c7902266f16b7bf1977c2b2f84de5b2c75b",
+            "file": "projects/nd-library/src/lib/nd-library.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-nd-library",
+            "styleUrls": [],
+            "styles": [
+                ""
+            ],
+            "template": "<p>\n  nd-library works!\n</p>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'lib-nd-library',\r\n  standalone: false,\r\n  template: `\r\n    <p>\r\n      nd-library works!\r\n    </p>\r\n  `,\r\n  styles: ``\r\n})\r\nexport class NdLibrary {\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n",
+            "extends": []
+        }
+    ],
+    "modules": [
+        {
+            "name": "NdLibraryModule",
+            "id": "module-NdLibraryModule-e11892dfe878e2cda758a04602a5b5fbe29c916dc5ee37de7344a58eef89ca6948bb7e9e7a694459e7c3b0e5f3e29dba4f6e6c9ee13878d242b9a87f159e9461",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/nd-library/src/lib/nd-library-module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { NdLibrary } from './nd-library';\r\nimport {\r\n  ButtonComponent\r\n} from './components/button/button.component';\r\nimport {NgClass} from '@angular/common';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    NdLibrary,\r\n    ButtonComponent\r\n  ],\r\n  imports: [\r\n    NgClass\r\n  ],\r\n  exports: [\r\n    NdLibrary,\r\n    ButtonComponent\r\n  ]\r\n})\r\nexport class NdLibraryModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "NdLibrary"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "NgClass"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "NdLibrary"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [],
+        "functions": [
+            {
+                "name": "getButtonLabel",
+                "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "getButtonSpec",
+                "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "ComponentFixture",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "ComponentFixture",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "getClasses",
+                "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "hasClass",
+                "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "className",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "className",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "hasLeftIcon",
+                "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "hasRightIcon",
+                "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "HTMLElement",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {},
+        "groupedFunctions": {
+            "projects/nd-library/src/lib/components/button/button-test-utils.ts": [
+                {
+                    "name": "getButtonLabel",
+                    "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getButtonSpec",
+                    "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "element",
+                            "type": "ComponentFixture",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "type": "ComponentFixture",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getClasses",
+                    "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "hasClass",
+                    "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "className",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "className",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "hasLeftIcon",
+                    "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "hasRightIcon",
+                    "file": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 10,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getButtonLabel",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getButtonSpec",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getClasses",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "hasClass",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "hasLeftIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/button/button-test-utils.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "hasRightIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 85,
+                "coverageCount": "6/7",
+                "status": "very-good"
+            },
+            {
+                "filePath": "projects/nd-library/src/lib/nd-library.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NdLibrary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

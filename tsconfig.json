@@ -7,6 +7,14 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+
+    "paths": {
+      "nd-library": [
+        "./dist/nd-library",
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
@@ -29,6 +37,18 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/nd-library/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/nd-library/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/nd-library/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/nd-library/tsconfig.spec.json"
     }
   ]
 }

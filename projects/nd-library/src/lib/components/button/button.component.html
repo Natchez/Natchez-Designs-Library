@@ -1,0 +1,16 @@
+<button [disabled]="disabled"
+        (click)="onClick()"
+        [ngClass]="classes">
+  <span class="btn-wrap">
+  <span class="icon icon-left">
+    // TODO add icons
+    <ng-content select="[icon-left]"></ng-content>
+  </span>
+  <span class="label">
+    {{ label }}
+  </span>
+  <span class="icon icon-right">
+    <ng-content select="[icon-right]"></ng-content>
+  </span>
+  </span>
+</button>
