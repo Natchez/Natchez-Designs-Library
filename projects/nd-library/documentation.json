@@ -125,7 +125,7 @@
                     }
                 }
             },
-            "templateData": "<button [disabled]=\"disabled\"\r\n        (click)=\"onClick()\"\r\n        [ngClass]=\"classes\">\r\n  <span class=\"btn-wrap\">\r\n  <span class=\"icon icon-left\">\r\n    // TODO add icons\r\n    <ng-content select=\"[icon-left]\"></ng-content>\r\n  </span>\r\n  <span class=\"label\">\r\n    {{ label }}\r\n  </span>\r\n  <span class=\"icon icon-right\">\r\n    <ng-content select=\"[icon-right]\"></ng-content>\r\n  </span>\r\n  </span>\r\n</button>\r\n"
+            "templateData": "<button [disabled]=\"disabled\"\r\n        (click)=\"onClick()\"\r\n        [ngClass]=\"classes\">\r\n  <span class=\"btn-wrap\">\r\n  <span class=\"icon icon-left\">\r\n<!--    // TODO add icons-->\r\n    <ng-content select=\"[icon-left]\"></ng-content>\r\n  </span>\r\n  <span class=\"label\">\r\n    {{ label }}\r\n  </span>\r\n  <span class=\"icon icon-right\">\r\n    <ng-content select=\"[icon-right]\"></ng-content>\r\n  </span>\r\n  </span>\r\n</button>\r\n"
         },
         {
             "name": "CheckboxComponent",
@@ -280,7 +280,7 @@
         },
         {
             "name": "SwitchComponent",
-            "id": "component-SwitchComponent-e9b9e828efc385d4014da1f241d9e978a464d8109938107801641b152f29cb9a0461c88f429ea8ba7054fb21814467cd8dcf482bfe81ad5ee07d4e218fd125fd",
+            "id": "component-SwitchComponent-2606cb34815fa75a27b2590e01cfb3035a9d79024ac029b9ac6568ae5e9d4a22622f28ea6b24b7b9672475e255dd64bb9577dd3580efca736b09f08c6ff6c8b7",
             "file": "projects/nd-library/src/lib/components/switch.component/switch.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -295,10 +295,98 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "checked",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'green'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'small'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                },
+                {
+                    "name": "subLabel",
+                    "defaultValue": "'green'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "thumbColor",
+                    "defaultValue": "'white'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "trackColor",
+                    "defaultValue": "'#BFBFC0'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "clicked",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nEvent emitted when the button is clicked (if not disabled)\n",
+                    "description": "<p>Event emitted when the button is clicked (if not disabled)</p>\n",
+                    "line": 22,
+                    "type": "EventEmitter<any>"
+                }
+            ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nHandles button click and prevents firing `clicked` if disabled\n",
+                    "description": "<p>Handles button click and prevents firing <code>clicked</code> if disabled</p>\n"
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -308,25 +396,38 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'lib-switch.component',\r\n  standalone: false,\r\n  templateUrl: './switch.component.html',\r\n  styleUrl: './switch.component.css'\r\n})\r\nexport class SwitchComponent {\r\n\r\n}\r\n",
-            "styleUrl": "./switch.component.css",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'lib-switch.component',\r\n  standalone: false,\r\n  templateUrl: './switch.component.html',\r\n  styleUrl: './switch.component.scss'\r\n})\r\nexport class SwitchComponent {\r\n\r\n  @Input() trackColor = '#BFBFC0';\r\n  @Input() thumbColor = 'white';\r\n  @Input() label = 'green';\r\n  @Input() subLabel = 'green';\r\n  @Input() size: 'small' | 'medium' | 'large' = 'small';\r\n  @Input() disabled = false;\r\n  @Input() checked = false;\r\n\r\n  /**\r\n   * Event emitted when the button is clicked (if not disabled)\r\n   **/\r\n  @Output() clicked: EventEmitter<any> = new EventEmitter();\r\n\r\n  /**\r\n   * Handles button click and prevents firing `clicked` if disabled\r\n   **/\r\n  onClick(): void {\r\n    if (!this.disabled) {\r\n      this.checked = !this.checked;\r\n      this.clicked.emit();\r\n    }\r\n  }\r\n\r\n  /**\r\n   * Automatically sets classes when input changes\r\n   **/\r\n  public get classes(): string[] {\r\n    return [\r\n      'nd-switch',\r\n      `nd-switch--${this.size}`,\r\n      `nd-switch--${this.checked}`,\r\n      `nd-switch-track--${this.trackColor}`,\r\n      `nd-switch-thumb--${this.thumbColor}`,\r\n      this.disabled ? 'nd-switch--disabled' : ''\r\n    ];\r\n  }\r\n\r\n}\r\n",
+            "styleUrl": "./switch.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<svg width=\"60\" height=\"34\" viewBox=\"0 0 60 34\" xmlns=\"http://www.w3.org/2000/svg\">\r\n  <!-- Track -->\r\n  <rect x=\"2\" y=\"2\" rx=\"17\" width=\"56\" height=\"30\" fill=\"#ccc\" />\r\n\r\n  <!-- Thumb -->\r\n  <circle id=\"thumb\" cx=\"17\" cy=\"17\" r=\"13\" fill=\"white\" />\r\n</svg>\r\n\r\n\r\n"
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 37,
+                        "rawdescription": "\n\nAutomatically sets classes when input changes\n",
+                        "description": "<p>Automatically sets classes when input changes</p>\n"
+                    }
+                }
+            },
+            "templateData": "<div [ngClass]=\"classes\"\r\n     (click)=\"onClick()\">\r\n\r\n  <svg\r\n    width=\"60\"\r\n    height=\"34\"\r\n    viewBox=\"0 0 60 34\"\r\n    xmlns=\"http://www.w3.org/2000/svg\">\r\n    <!-- Track -->\r\n    <rect\r\n      x=\"2\"\r\n      y=\"2\"\r\n      rx=\"17\"\r\n      width=\"56\"\r\n      height=\"30\"\r\n      [attr.fill]=\"trackColor\"\r\n      class=\"track\"/>\r\n\r\n    <!-- Thumb -->\r\n    <circle\r\n      id=\"thumb\"\r\n      cx=\"18\"\r\n      cy=\"17\"\r\n      r=\"13\"\r\n      class=\"thumb\"\r\n      [class.on]=\"checked\"\r\n      [attr.fill]=\"thumbColor\"/>\r\n  </svg>\r\n\r\n  <span\r\n    class=\"label\">\r\n    {{ label }}\r\n  </span>\r\n  <span\r\n    class=\"subLabel\">\r\n    {{ subLabel }}\r\n  </span>\r\n</div>\r\n\r\n\r\n"
         }
     ],
     "modules": [
         {
             "name": "NdLibraryModule",
-            "id": "module-NdLibraryModule-8d026aaabcebe9feb8c3e7667fa45212d62bfdbb355cad5040cf98e25266ebe62dccc21d0a09ba1e45c3ef335a4b17fd14d075d2e2f6e88b618afed21cb73a8d",
+            "id": "module-NdLibraryModule-df640c0978db0a3fa647fcedbc6cdb5e32df48ce8ecb6965780fc58b6c97e192955499fecfd181f54e35fef26385e649cde0126a8e7e0308a25197786244c005",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/nd-library/src/lib/nd-library-module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { NdLibrary } from './nd-library';\r\nimport {\r\n  ButtonComponent\r\n} from './components/button/button.component';\r\nimport {NgClass} from '@angular/common';\r\nimport { CheckboxComponent } from './components/checkbox.component/checkbox.component';\r\nimport { RadioComponent } from './components/radio.component/radio.component';\r\nimport { IconButtonComponent } from './components/icon-button.component/icon-button.component';\r\nimport { SwitchComponent } from './components/switch.component/switch.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    NdLibrary,\r\n    ButtonComponent,\r\n    CheckboxComponent,\r\n    RadioComponent,\r\n    IconButtonComponent,\r\n    SwitchComponent\r\n  ],\r\n  imports: [\r\n    NgClass\r\n  ],\r\n  exports: [\r\n    NdLibrary,\r\n    ButtonComponent\r\n  ]\r\n})\r\nexport class NdLibraryModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { NdLibrary } from './nd-library';\r\nimport {\r\n  ButtonComponent\r\n} from './components/button/button.component';\r\nimport {NgClass} from '@angular/common';\r\nimport { CheckboxComponent } from './components/checkbox.component/checkbox.component';\r\nimport { RadioComponent } from './components/radio.component/radio.component';\r\nimport { IconButtonComponent } from './components/icon-button.component/icon-button.component';\r\nimport { SwitchComponent } from './components/switch.component/switch.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    NdLibrary,\r\n    ButtonComponent,\r\n    CheckboxComponent,\r\n    RadioComponent,\r\n    IconButtonComponent,\r\n    SwitchComponent\r\n  ],\r\n  imports: [\r\n    NgClass\r\n  ],\r\n  exports: [\r\n    NdLibrary,\r\n    ButtonComponent,\r\n    CheckboxComponent,\r\n    RadioComponent,\r\n    IconButtonComponent,\r\n    SwitchComponent,\r\n  ]\r\n})\r\nexport class NdLibraryModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -370,7 +471,19 @@
                             "name": "ButtonComponent"
                         },
                         {
+                            "name": "CheckboxComponent"
+                        },
+                        {
+                            "name": "IconButtonComponent"
+                        },
+                        {
                             "name": "NdLibrary"
+                        },
+                        {
+                            "name": "RadioComponent"
+                        },
+                        {
+                            "name": "SwitchComponent"
                         }
                     ]
                 },
@@ -767,7 +880,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 7,
+        "count": 8,
         "status": "low",
         "files": [
             {
@@ -871,8 +984,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "SwitchComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coveragePercent": 20,
+                "coverageCount": "2/10",
                 "status": "low"
             },
             {
