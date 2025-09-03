@@ -1,5 +1,7 @@
 <div [ngClass]="classes"
-     (click)="onClick()">
+     (click)="onClick()"
+     role="switch"
+     [attr.aria-checked]="checked">
 
   <svg
     width="60"

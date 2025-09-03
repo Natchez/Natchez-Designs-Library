@@ -53,22 +53,28 @@ type Story = StoryObj<SwitchComponent>;
 
 const setupCanvas = (canvasElement: HTMLElement) => {
   const canvas = within(canvasElement);
-  const button = canvasElement.querySelector('button');
-  return {canvas, button}
+  const ndswitch = canvas.getByRole('switch');
+  console.log(ndswitch);
+  return {canvas, ndswitch}
 }
+
 
 
 export const Default: Story = {
   args: {
-    label: '',
-    subLabel: '',
+    label: 'New Switch',
+    subLabel: 'Sublabelly',
     size: 'small',
     disabled: false,
     checked: false,
   },
   play: async ({canvasElement}) => {
-    const {canvas} = setupCanvas(canvasElement);
-    expect(canvas).toBe(true);
+    const {ndswitch} = setupCanvas(canvasElement);
+
+   const label = ndswitch?.querySelector('.label')?.textContent?.trim() ?? '';
+   const subLabel = ndswitch?.querySelector('.subLabel')?.textContent?.trim() ?? '';
+    expect(label).toBe('New Switch');
+    expect(subLabel).toBe('Sublabelly');
   }
 
 
