@@ -51,7 +51,28 @@ Use this component to allow users to enable or disable features, settings, or pr
 export default meta;
 type Story = StoryObj<SwitchComponent>;
 
-export const Default: Story = {}
+const setupCanvas = (canvasElement: HTMLElement) => {
+  const canvas = within(canvasElement);
+  const button = canvasElement.querySelector('button');
+  return {canvas, button}
+}
+
+
+export const Default: Story = {
+  args: {
+    label: '',
+    subLabel: '',
+    size: 'small',
+    disabled: false,
+    checked: false,
+  },
+  play: async ({canvasElement}) => {
+    const {canvas} = setupCanvas(canvasElement);
+    expect(canvas).toBe(true);
+  }
+
+
+}
 export const ToggleOn: Story = {}
 export const Disabled: Story = {}
 export const Small: Story = {}
