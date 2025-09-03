@@ -415,7 +415,7 @@
                     }
                 }
             },
-            "templateData": "<div [ngClass]=\"classes\"\r\n     (click)=\"onClick()\">\r\n\r\n  <svg\r\n    width=\"60\"\r\n    height=\"34\"\r\n    viewBox=\"0 0 60 34\"\r\n    xmlns=\"http://www.w3.org/2000/svg\">\r\n    <!-- Track -->\r\n    <rect\r\n      x=\"2\"\r\n      y=\"2\"\r\n      rx=\"17\"\r\n      width=\"56\"\r\n      height=\"30\"\r\n      [attr.fill]=\"trackColor\"\r\n      class=\"track\"/>\r\n\r\n    <!-- Thumb -->\r\n    <circle\r\n      id=\"thumb\"\r\n      cx=\"18\"\r\n      cy=\"17\"\r\n      r=\"13\"\r\n      class=\"thumb\"\r\n      [class.on]=\"checked\"\r\n      [attr.fill]=\"thumbColor\"/>\r\n  </svg>\r\n\r\n  <span\r\n    class=\"label\">\r\n    {{ label }}\r\n  </span>\r\n  <span\r\n    class=\"subLabel\">\r\n    {{ subLabel }}\r\n  </span>\r\n</div>\r\n\r\n\r\n"
+            "templateData": "<div [ngClass]=\"classes\"\r\n     (click)=\"onClick()\"\r\n     role=\"switch\"\r\n     [attr.aria-checked]=\"checked\">\r\n\r\n  <svg\r\n    width=\"60\"\r\n    height=\"34\"\r\n    viewBox=\"0 0 60 34\"\r\n    xmlns=\"http://www.w3.org/2000/svg\">\r\n    <!-- Track -->\r\n    <rect\r\n      x=\"2\"\r\n      y=\"2\"\r\n      rx=\"17\"\r\n      width=\"56\"\r\n      height=\"30\"\r\n      [attr.fill]=\"trackColor\"\r\n      class=\"track\"/>\r\n\r\n    <!-- Thumb -->\r\n    <circle\r\n      id=\"thumb\"\r\n      cx=\"18\"\r\n      cy=\"17\"\r\n      r=\"13\"\r\n      class=\"thumb\"\r\n      [class.on]=\"checked\"\r\n      [attr.fill]=\"thumbColor\"/>\r\n  </svg>\r\n\r\n  <span\r\n    class=\"label\">\r\n    {{ label }}\r\n  </span>\r\n  <span\r\n    class=\"subLabel\">\r\n    {{ subLabel }}\r\n  </span>\r\n</div>\r\n\r\n\r\n"
         }
     ],
     "modules": [
